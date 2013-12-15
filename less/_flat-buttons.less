@@ -1,0 +1,106 @@
+//
+// Buttons
+// --------------------------------------------------
+@btn-font-weight:                normal;
+
+@btn-flat-default-color:              #333;
+@btn-flat-default-bg:                 #fff;
+@btn-flat-default-border:             #ccc;
+
+@btn-flat-primary-color:              #fff;
+@btn-flat-primary-bg:                 #428bca;
+@btn-flat-primary-border:             darken(@btn-flat-primary-bg, 5%);
+
+@btn-flat-success-color:              #fff;
+@btn-flat-success-bg:                 #5cb85c;
+@btn-flat-success-border:             darken(@btn-flat-success-bg, 5%);
+
+@btn-flat-warning-color:              #fff;
+@btn-flat-warning-bg:                 #f0ad4e;
+@btn-flat-warning-border:             darken(@btn-flat-warning-bg, 5%);
+
+@btn-flat-danger-color:               #fff;
+@btn-flat-danger-bg:                  #d9534f;
+@btn-flat-danger-border:              darken(@btn-flat-danger-bg, 5%);
+
+@btn-flat-info-color:                 #fff;
+@btn-flat-info-bg:                    #5bc0de;
+@btn-flat-info-border:                darken(@btn-flat-info-bg, 5%);
+
+@btn-flat-inverse-color:              #fff;
+@btn-flat-inverse-bg:                 #404040;
+@btn-flat-inverse-border:             darken(@btn-flat-inverse-bg, 5%);
+
+@btn-flat-link-disabled-color:        @gray-light;
+
+// Mixin for generating new styles
+.btn-flat-styles(@btn-color: #555;) {
+  // #gradient > .vertical(@start-color: @btn-color; @end-color: darken(@btn-color, 10%));
+  border-color: darken(@btn-color, 12%);
+  border-radius: 0;
+  &:active,
+  &.active {
+    background-color: darken(@btn-color, 10%);
+    border-color: darken(@btn-color, 12%);
+  }
+}
+
+
+
+// Common styles
+.btn-flat-default,
+.btn-flat-primary,
+.btn-flat-success,
+.btn-flat-info,
+.btn-flat-warning,
+.btn-flat-danger, 
+.btn-flat-inverse{
+  text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+  @shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075);
+  .box-shadow(@shadow);
+  
+  // Reset the shadow
+  &:active,
+  &.active {
+    .box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+  }
+  &:focus{
+    // Default
+    outline: none;
+    // Webkit
+    //outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: 0;
+  }
+}
+
+
+
+// Apply the mixin to the buttons
+.btn-flat-default { 
+	.button-variant(@btn-flat-default-color; @btn-flat-default-bg; @btn-flat-default-border);
+ 	.btn-flat-styles(@btn-flat-default-bg);
+}
+.btn-flat-primary { 
+	.button-variant(@btn-flat-primary-color; @btn-flat-primary-bg; @btn-flat-primary-border);
+	.btn-flat-styles(@btn-flat-primary-bg); 
+}
+.btn-flat-success {
+	.button-variant(@btn-flat-success-color; @btn-flat-success-bg; @btn-flat-success-border);
+	.btn-flat-styles(@btn-flat-success-bg); 
+}
+.btn-flat-warning {
+	.button-variant(@btn-flat-warning-color; @btn-flat-warning-bg; @btn-flat-warning-border);
+	.btn-flat-styles(@btn-flat-warning-bg); 
+}
+.btn-flat-danger {
+	.button-variant(@btn-flat-danger-color; @btn-flat-danger-bg; @btn-flat-danger-border);
+ 	.btn-flat-styles(@btn-flat-danger-bg); 
+}
+.btn-flat-info {
+	.button-variant(@btn-flat-info-color; @btn-flat-info-bg; @btn-flat-info-border);
+	.btn-flat-styles(@btn-flat-info-bg); 
+}
+.btn-flat-inverse{
+	.button-variant(@btn-flat-inverse-color; @btn-flat-inverse-bg; @btn-flat-inverse-border);
+	.btn-flat-styles(@btn-flat-inverse-bg); 
+}
